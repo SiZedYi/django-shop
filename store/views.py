@@ -56,14 +56,14 @@ class RegistrationView(View):
     def get(self, request):
         form = RegistrationForm()
         return render(request, 'account/register.html', {'form': form})
-    
+
     def post(self, request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             messages.success(request, "Congratulations! Registration Successful!")
             form.save()
         return render(request, 'account/register.html', {'form': form})
-        
+
 
 @login_required
 def profile(request):
@@ -112,7 +112,7 @@ def add_to_cart(request):
         cp.save()
     else:
         Cart(user=user, product=product).save()
-    
+
     return redirect('store:cart')
 
 
@@ -179,7 +179,7 @@ def minus_cart(request, cart_id):
 def checkout(request):
     user = request.user
     address_id = request.GET.get('address')
-    
+
     address = get_object_or_404(Address, id=address_id)
     # Get all the products of User in Cart
     cart = Cart.objects.filter(user=user)

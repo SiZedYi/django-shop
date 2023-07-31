@@ -1,0 +1,396 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-31 14:01+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: store/forms.py:29
+msgid "Password"
+msgstr "Mật Khẩu"
+
+#: store/forms.py:40
+msgid "Old Password"
+msgstr "Mật Khẩu Cũ"
+
+#: store/forms.py:41 store/forms.py:50
+msgid "New Password"
+msgstr "Mật Khẩu Mới"
+
+#: store/forms.py:42 store/forms.py:51
+msgid "Confirm Password"
+msgstr "Xác Nhận Mật Khẩu"
+
+#: store/forms.py:46
+msgid "Email"
+msgstr "Email"
+
+#: templates/account/add_address.html:11
+msgid "Add New Address"
+msgstr "Thêm Địa Chỉ Mới"
+
+#: templates/account/add_address.html:16
+msgid ""
+"\n"
+"          With a this account, you can save time during checkout, access "
+"your shopping bag from any device and view your order history.\n"
+"          "
+msgstr ""
+"\n"
+"          Khi bạn đăng nhập tài khoản này, bạn có thể tiết kiệm thời gian "
+"mỗi khi đặt hàng, truy cập giỏ hàng của bạn từ bất cứ thiết bị nào và xem "
+"lịch sử đặt hàng của bạn\n"
+"          "
+
+#: templates/account/add_address.html:36
+#: templates/account/password_reset.html:29 templates/account/register.html:33
+msgid "Submit"
+msgstr "Xác Nhận"
+
+#: templates/account/login.html:11
+msgid "Log In to Your Account"
+msgstr "Đăng Nhập Tài Khoản"
+
+#: templates/account/login.html:30 templates/navbar.html:91
+msgid "Login"
+msgstr "Đăng Nhập"
+
+#: templates/account/login.html:36 templates/account/password_change.html:36
+#, python-format
+msgid "%(error)s"
+msgstr "%(error)s"
+
+#: templates/account/login.html:49
+#, fuzzy
+#| msgid "Confirm Password"
+msgid "Forgot Password?"
+msgstr "Xác Nhận Mật Khẩu"
+
+#: templates/account/login.html:49
+msgid "Reset Now"
+msgstr "Quên Mật Khẩu"
+
+#: templates/account/login.html:50
+msgid "New Member? "
+msgstr "Khách Hàng Mới?"
+
+#: templates/account/login.html:50
+msgid "Create an Account"
+msgstr "Tạo Tài Khoản"
+
+#: templates/account/password_change.html:10
+#, fuzzy
+#| msgid "New Password"
+msgid "Change Your Password"
+msgstr "Mật Khẩu Mới"
+
+#: templates/account/password_change.html:30
+#: templates/account/password_reset_confirm.html:29
+msgid "Save"
+msgstr "Lưu"
+
+#: templates/account/password_change_done.html:18
+msgid "Your Password Changed Successfully."
+msgstr "Mật Khẩu Của Bạn Đã Được Đặt Lại"
+
+#: templates/account/password_change_done.html:21
+#: templates/account/password_reset_complete.html:20
+msgid "Let's "
+msgstr "Cùng "
+
+#: templates/account/password_change_done.html:21
+#, fuzzy
+#| msgid "Profile"
+msgid " go to Profile."
+msgstr "đi đến trang Thông Tin"
+
+#: templates/account/password_reset.html:9
+#, fuzzy
+#| msgid "Password"
+msgid "Password Reset"
+msgstr "Đặt Lại Mật Khẩu"
+
+#: templates/account/password_reset.html:10
+msgid "Add your Email Address to get password reset link."
+msgstr "Thêm địa chỉ Email của bạn để nhận đường dẫn đặt lại mật khẩu."
+
+#: templates/account/password_reset_complete.html:17
+msgid "New Password Set Successfully."
+msgstr "Mật Khẩu Mới Đã Được Đặt Lại"
+
+#: templates/account/password_reset_complete.html:20
+#, fuzzy
+#| msgid "Login"
+msgid " Login."
+msgstr "Đăng Nhập."
+
+#: templates/account/password_reset_confirm.html:9
+#, fuzzy
+#| msgid "New Password"
+msgid "Set Password"
+msgstr "Mật Khẩu Mới"
+
+#: templates/account/password_reset_confirm.html:10
+msgid "Set new password here."
+msgstr "Nhập Mật Khẩu Mới của Bạn Tại Đây"
+
+#: templates/account/password_reset_done.html:17
+msgid "Email Sent Successfully."
+msgstr "Đã gửi Email"
+
+#: templates/account/password_reset_done.html:20
+msgid "Please Check your inbox for the password reset link."
+msgstr "Hãy kiểm tra đường dẫn đặt lại mật khẩu trong Hòm thư của bạn"
+
+#: templates/account/profile.html:12
+#, fuzzy
+#| msgid "Email"
+msgid "Email:"
+msgstr "Email"
+
+#: templates/account/profile.html:13
+msgid "Username:"
+msgstr "Tên Tài Khoản"
+
+#: templates/account/profile.html:14
+#, fuzzy
+#| msgid "Add New Address"
+msgid "Add Address »"
+msgstr "Thêm Địa Chỉ"
+
+#: templates/account/profile.html:14
+#, fuzzy
+#| msgid "Orders"
+msgid "My Orders »"
+msgstr "Đơn Hàng"
+
+#: templates/account/profile.html:22
+msgid "Addresses"
+msgstr "Danh Sách Địa Chỉ"
+
+#: templates/account/profile.html:22
+#, fuzzy
+#| msgid "Add New Address"
+msgid "Add Address"
+msgstr "Thêm Địa Chỉ"
+
+#: templates/account/profile.html:26
+#, python-format
+msgid "Address %(forloop.counter)s"
+msgstr "Địa Chỉ %(forloop.counter)s"
+
+#: templates/account/profile.html:31
+msgid "Locality:"
+msgstr "Địa Chỉ Cụ Thể:"
+
+#: templates/account/profile.html:32
+msgid "City:"
+msgstr "Quận:"
+
+#: templates/account/profile.html:33
+msgid "State:"
+msgstr "Thành Phố:"
+
+#: templates/account/profile.html:40
+msgid "Address not Added."
+msgstr "Địa Chỉ chưa được thêm"
+
+#: templates/account/profile.html:50 templates/navbar.html:83
+msgid "Orders"
+msgstr "Đơn Hàng"
+
+#: templates/account/profile.html:56
+msgid "Item"
+msgstr "Sản Phẩm"
+
+#: templates/account/profile.html:57
+msgid "Status"
+msgstr "Trạng Thái"
+
+#: templates/account/profile.html:73
+msgid "You've not Ordered anything yet."
+msgstr "Bạn chưa có đơn hàng nào."
+
+#: templates/account/register.html:9
+#, fuzzy
+#| msgid "Create Account"
+msgid "Create Your Account"
+msgstr "Tạo Tài Khoản"
+
+#: templates/account/register.html:15
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "          With a this account, you can save time during checkout, access "
+#| "your shopping bag from any device and view your order history.\n"
+#| "          "
+msgid ""
+"With this account, you can save time during checkout, access your shopping "
+"bag from any device and view your order history."
+msgstr ""
+"\n"
+"          Khi bạn đăng nhập tài khoản này, bạn có thể tiết kiệm thời gian "
+"mỗi khi đặt hàng, truy cập giỏ hàng của bạn từ bất cứ thiết bị nào và xem "
+"lịch sử đặt hàng của bạn\n"
+"          "
+
+#: templates/account/register.html:48
+#, fuzzy
+#| msgid "Create an Account"
+msgid "Already have an account?"
+msgstr "Tạo Tài Khoản"
+
+#: templates/account/register.html:48
+#, fuzzy
+#| msgid "Log Out"
+msgid "Log In"
+msgstr "Đăng Xuất"
+
+#: templates/footer.html:9
+msgid "Customer services"
+msgstr "Chăm sóc Khách hàng"
+
+#: templates/footer.html:11
+msgid "Help & Contact Us"
+msgstr "Liên hệ chúng tôi"
+
+#: templates/footer.html:12
+msgid "Returns & Refunds"
+msgstr "Hoàn tiền"
+
+#: templates/footer.html:13
+msgid "Online Stores"
+msgstr "Cửa hàng Trực tuyến"
+
+#: templates/footer.html:14
+msgid "Terms & Conditions"
+msgstr "Điều khoản & Dịch vụ"
+
+#: templates/footer.html:18
+msgid "Company"
+msgstr "Công ty"
+
+#: templates/footer.html:20
+msgid "What We Do"
+msgstr ""
+
+#: templates/footer.html:21
+msgid "Available Services"
+msgstr ""
+
+#: templates/footer.html:22
+msgid "Latest Posts"
+msgstr ""
+
+#: templates/footer.html:23
+msgid "FAQs"
+msgstr ""
+
+#: templates/footer.html:27
+msgid "Social media"
+msgstr "Mạng xã hội"
+
+#: templates/footer.html:39
+msgid "All rights reserved."
+msgstr ""
+
+#: templates/footer.html:42
+msgid "Website by"
+msgstr "Phát triển bởi"
+
+#: templates/navbar.html:9 templates/navbar.html:34
+msgid "Hotline: 951-999-9999"
+msgstr "Hotline: 951-999-9999"
+
+#: templates/navbar.html:13
+msgid "Welcome to Lara Market"
+msgstr "Chào mừng bạn đến với Lara Market"
+
+#: templates/navbar.html:45
+msgid "laramarket"
+msgstr "laramarket"
+
+#: templates/navbar.html:50
+msgid "Home"
+msgstr "Trang Chủ"
+
+#: templates/navbar.html:52
+msgid "Categories"
+msgstr "Nhãn Hiệu"
+
+#: templates/navbar.html:60
+msgid "All Categories"
+msgstr "Tất cả Nhãn Hiệu"
+
+#: templates/navbar.html:64
+msgid "Blog"
+msgstr "Hướng Dẫn"
+
+#: templates/navbar.html:67
+msgid "Contact"
+msgstr "Liên Hệ"
+
+#: templates/navbar.html:77
+msgid "My Account"
+msgstr "Tài Khoản"
+
+#: templates/navbar.html:81
+msgid "Profile"
+msgstr "Thông Tin"
+
+#: templates/navbar.html:82
+msgid "Cart"
+msgstr "Giỏ Hàng"
+
+#: templates/navbar.html:84
+#, fuzzy
+#| msgid "New Password"
+msgid "Change Password"
+msgstr "Mật Khẩu Mới"
+
+#: templates/navbar.html:87
+msgid "Log Out"
+msgstr "Đăng Xuất"
+
+#: templates/navbar.html:92
+msgid "Create Account"
+msgstr "Tạo Tài Khoản"
+
+#: templates/registration/password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+"Bạn nhận được email này vì đã yêu cầu đặt lại mật khẩu cho tài khoản của bạn "
+"tại %(site_name)s."
+
+#: templates/registration/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr "Hãy bấm vào đây và tạo một mật khẩu mới"
+
+#: templates/registration/password_reset_email.html:8
+msgid "Your username, in case you’ve forgotten:"
+msgstr "Username của bạn, trong trường hợp bạn đã quên"
+
+#: templates/registration/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr "Cảm ơn đã ghé thăm trang của chúng tôi"
+
+#: templates/registration/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "Đội ngũ %(site_name)s"

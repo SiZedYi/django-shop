@@ -1,89 +1,89 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
+{% block content %}
 
-    {% block content %}
+<div class="container py-5">
+  {% include 'partials/_messages.html' %}
 
-      <div class="container py-5">
-        {% include 'partials/_messages.html' %}
-
-        <div class="jumbotron">
-          <h1>{{request.user.first_name}} {{request.user.last_name}}</h1>
-          <p><strong>Email:</strong> {{request.user.email}}</p>
-          <p><strong>Username:</strong> {{request.user.username}}</p>
-          <p><a class="btn btn-primary btn-large" href="{% url 'store:add-address' %}">Add Address »</a> <a class="btn btn-outline-primary btn-large" href="#">My Orders »</a></p>
-        </div>
+  <div class="jumbotron">
+    <!-- Thêm blocktrans cho hiển thị tên và họ của người dùng -->
+    <h1>{{ request.user.first_name }} {{ request.user.last_name }}</h1>
+    <p><strong>{% trans 'Email:' %}</strong> {{ request.user.email }}</p>
+    <p><strong>{% trans 'Username:' %}</strong> {{ request.user.username }}</p>
+    <p><a class="btn btn-primary btn-large" href="{% url 'store:add-address' %}">{% trans 'Add Address »' %}</a> <a class="btn btn-outline-primary btn-large" href="#">{% trans 'My Orders »' %}</a></p>
+  </div>
 
 
-        <div class="row">
+  <div class="row">
 
-          <div class="col-lg-6">
-            <div class="card mb-4" id="headings">
-              <div class="card-header">Addresses <span class="float-right"><a href="{% url 'store:add-address' %}">Add Address</a></span></div>
-              <div class="card-body">
-                {% if addresses %}
-                    {% for address in addresses %}
-                        <h4 class="mb-3">Address {{forloop.counter}}</h4> 
-                        
-                        <span class="float-right"><a href="{% url 'store:remove-address' address.id %}"><i class="fas fa-trash-alt small text-muted"></i></a></span>
+    <div class="col-lg-6">
+      <div class="card mb-4" id="headings">
+        <div class="card-header">{% trans 'Addresses' %} <span class="float-right"><a href="{% url 'store:add-address' %}">{% trans 'Add Address' %}</a></span></div>
+        <div class="card-body">
+          {% if addresses %}
+            {% for address in addresses %}
+              <h4 class="mb-3">{% blocktrans %}Address {{ forloop.counter }}{% endblocktrans %}</h4>
 
-                        <p>
-                            <strong>Locality: </strong>{{address.locality}} <br>
-                            <strong>City: </strong>{{address.city}} <br>
-                            <strong>State: </strong>{{address.state}} <br>
-                        </p>
+              <span class="float-right"><a href="{% url 'store:remove-address' address.id %}"><i class="fas fa-trash-alt small text-muted"></i></a></span>
 
-                        <hr>
-                    {% endfor %}
-                {% else %}
-                <div class="text-danger">
-                  Address not Added.
-                </div>
-                {% endif %}
-                
-              </div>
+              <p>
+                <strong>{% trans 'Locality:' %} </strong>{{ address.locality }} <br>
+                <strong>{% trans 'City:' %} </strong>{{ address.city }} <br>
+                <strong>{% trans 'State:' %} </strong>{{ address.state }} <br>
+              </p>
+
+              <hr>
+            {% endfor %}
+          {% else %}
+            <div class="text-danger">
+              {% trans 'Address not Added.' %}
             </div>
-          </div>
+          {% endif %}
 
-          <div class="col-lg-6">
-            <div class="card mb-4" id="tables">
-              <div class="card-header">Orders</div>
-              <div class="card-body">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Item</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {% if orders %}
-                      {% for order in orders %}
-                        <tr>
-                          <td>{{forloop.counter}}</td>
-                          <td>{{order.product.title}}</td>
-                          <td>
-                            {{order.status}}
-                          </td>
-                        </tr>
-                      {% endfor %}
-                    {% else %}
-                    <tr>
-                      <td class="text-danger" colspan="3">You've not Ordered anything yet.</td>
-                    </tr>
-                    {% endif %}
-                    
-                    
-                  </tbody>
-                </table>
-                
-              </div>
-            </div>
-          </div>
-          
         </div>
-    
-        
-        
       </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="card mb-4" id="tables">
+        <div class="card-header">{% trans 'Orders' %}</div>
+        <div class="card-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>{% trans 'Item' %}</th>
+                <th>{% trans 'Status' %}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if orders %}
+                {% for order in orders %}
+                  <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ order.product.title }}</td>
+                    <td>
+                      {{ order.status }}
+                    </td>
+                  </tr>
+                {% endfor %}
+              {% else %}
+                <tr>
+                  <td class="text-danger" colspan="3">{% trans "You've not Ordered anything yet." %}</td>
+                </tr>
+              {% endif %}
+
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
 {% endblock content %}

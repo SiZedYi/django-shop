@@ -1,59 +1,97 @@
 {% load static %}
-
+{% load i18n %}
 <!-- navbar-->
-      <header class="header bg-white">
-        <div class="container px-0 px-lg-3">
-          <nav class="navbar navbar-expand-lg navbar-light py-3 px-lg-0"><a class="navbar-brand" href="{% url 'store:home' %}"><span class="font-weight-bold text-uppercase text-dark">Jewelry</span></a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <!-- Link--><a class="nav-link active" href="{% url 'store:home' %}">Home</a>
-                </li>
-                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-                  <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
-                    {% if categories_menu %}
-                      {% for cat_menu in categories_menu %}
-                        <a class="dropdown-item border-0 transition-link" href="{% url 'store:category-products' cat_menu.slug %}">{{cat_menu.title}}</a>
-                      {% endfor %}
-                    {% endif %}
-                    <hr>
-                    <a class="dropdown-item border-0 transition-link" href="{% url 'store:all-categories' %}">All Categories</a>
-                    
-                </li>
-                <li class="nav-item">
-                  <!-- Link--><a class="nav-link" href="{% url 'store:home' %}">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <!-- Link--><a class="nav-link" href="{% url 'store:home' %}">Contact</a>
-                </li>
-              </ul>
-              <ul class="navbar-nav ml-auto"> 
-                {% if request.user.is_authenticated %}           
-                  <li class="nav-item"><a class="nav-link" href="{% url 'store:cart' %}"> <i class="fas fa-dolly-flatbed mr-1 text-gray"></i>Cart<small class="text-gray">({{cart_items.count}})</small></a></li>
-                  <li class="nav-item"><a class="nav-link" href="#"> <i class="far fa-heart mr-1"></i><small class="text-gray"> (0)</small></a></li>
-                  {% comment %} <li class="nav-item"><a class="nav-link" href="#"> <i class="fas fa-user-alt mr-1 text-gray"></i>My Account</a></li> {% endcomment %}
+<header class="header bg-dark-light">
+  <div class="container">
+    <div class="row text-white py-2">
+      <div class="col-md-4 text-center d-none d-md-block">
+        <i class="fa fa-phone"></i>
+        <span>{% blocktrans %}Hotline: 951-999-9999{% endblocktrans %}</span>
+      </div>
+      <div class="col-md-4 text-center d-none d-md-block">
+        <img src="{% static 'img/logo-laraco.png' %}" alt="logo-laraco" height="30" width="30" />
+        <span>{% blocktrans %}Welcome to Lara Market{% endblocktrans %}</span>
+      </div>
+      <div class="col-md-4 text-center d-none d-md-block">
+        <form action="{% url 'set_language' %}" method="post">
+          {% csrf_token %}
+          <input name="next" type="hidden" value="{{ redirect_to }}">
+          <select name="language">
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% get_language_info_list for LANGUAGES as languages %}
+              {% for language in languages %}
+                  <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                      {{ language.name_local }} ({{ language.code }})
+                  </option>
+              {% endfor %}
+          </select>
+          <input type="submit" value="Go">
+      </form>
+      </div>
+      <div class="col-xs-12 text-center d-block d-md-none">
+        <i class="fa fa-phone"></i>
+        <span>{% blocktrans %}Hotline: 951-999-9999{% endblocktrans %}</span>
+      </div>
+    </div>
 
-                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-alt mr-1 text-gray"></i>My Account</a></a>
-                  
-                  <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
-                    
-                      <a class="dropdown-item border-0 transition-link" href="{% url 'store:profile' %}">Profile</a>
-                      <a class="dropdown-item border-0 transition-link" href="{% url 'store:cart' %}">Cart</a>
-                      <a class="dropdown-item border-0 transition-link" href="{% url 'store:orders' %}">Orders</a>
-                      <a class="dropdown-item border-0 transition-link" href="{% url 'store:password-change' %}">Change Password</a>
 
-                    <hr>
-                    <a class="dropdown-item border-0 transition-link" href="{% url 'store:logout' %}">Log Out</a>
-                    
-                </li>
-                {% else %}
-                  <li class="nav-item"><a class="nav-link" href="{% url 'store:login' %}">Login</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{% url 'store:register' %}">Create Account</a></li>
-                {% endif %}   
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </header>
 
+  </div>
+</header>
+
+<header class="header bg-orange">
+  <div class="container px-0 px-lg-3">
+    <nav class="navbar navbar-expand-lg navbar-light py-4 px-lg-0"><a class="navbar-brand" href="{% url 'store:home' %}"><span class="font-weight-bold text-uppercase text-dark">{% blocktrans %}laramarket{% endblocktrans %}</span></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <!-- Link--><a class="nav-link active" href="{% url 'store:home' %}">{% blocktrans %}Home{% endblocktrans %}</a>
+          </li>
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{% blocktrans %}Categories{% endblocktrans %}</a>
+            <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
+              {% if categories_menu %}
+                {% for cat_menu in categories_menu %}
+                  <a class="dropdown-item border-0 transition-link" href="{% url 'store:category-products' cat_menu.slug %}">{{cat_menu.title}}</a>
+                {% endfor %}
+              {% endif %}
+              <hr>
+              <a class="dropdown-item border-0 transition-link" href="{% url 'store:all-categories' %}">{% blocktrans %}All Categories{% endblocktrans %}</a>
+
+          </li>
+          <li class="nav-item">
+            <!-- Link--><a class="nav-link" href="{% url 'store:home' %}">{% blocktrans %}Blog{% endblocktrans %}</a>
+          </li>
+          <li class="nav-item">
+            <!-- Link--><a class="nav-link" href="{% url 'store:home' %}">{% blocktrans %}Contact{% endblocktrans %}</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          {% if request.user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'store:cart' %}"> <i class="fas fa-dolly-flatbed mr-1 text-gray"></i><small class="text-gray">({{cart_items.count}})</small></a></li>
+            <li class="nav-item"><a class="nav-link" href="#"> <i class="far fa-heart mr-1"></i><small class="text-gray"> (0)</small></a></li>
+            {% comment %} <li class="nav-item"><a class="nav-link" href="#"> <i class="fas fa-user-alt mr-1 text-gray"></i>My Account</a></li> {% endcomment %}
+
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-alt mr-1 text-gray"></i>{% blocktrans %}My Account{% endblocktrans %}</a></a>
+
+            <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
+
+                <a class="dropdown-item border-0 transition-link" href="{% url 'store:profile' %}">{% blocktrans %}Profile{% endblocktrans %}</a>
+                <a class="dropdown-item border-0 transition-link" href="{% url 'store:cart' %}">{% blocktrans %}Cart{% endblocktrans %}</a>
+                <a class="dropdown-item border-0 transition-link" href="{% url 'store:orders' %}">{% blocktrans %}Orders{% endblocktrans %}</a>
+                <a class="dropdown-item border-0 transition-link" href="{% url 'store:password-change' %}">{% blocktrans %}Change Password{% endblocktrans %}</a>
+
+              <hr>
+              <a class="dropdown-item border-0 transition-link" href="{% url 'store:logout' %}">{% blocktrans %}Log Out{% endblocktrans %}</a>
+
+          </li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'store:login' %}">{% blocktrans %}Login{% endblocktrans %}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'store:register' %}">{% blocktrans %}Create Account{% endblocktrans %}</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

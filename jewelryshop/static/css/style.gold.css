@@ -29,6 +29,8 @@ button:focus, button:active {
   outline: none;
 }
 
+
+
 /*
 *
 * ==========================================
@@ -666,7 +668,11 @@ a.text-hover-dark:focus, a.text-hover-dark:hover {
 }
 
 .bg-dark-light {
-  background-color: #e2e2e2;
+  background-color: #24292e;
+}
+
+.bg-orange {
+    background-color: #e4853f !important;
 }
 
 .border-dark {
@@ -1317,7 +1323,7 @@ a.text-hover-dark:focus, a.text-hover-dark:hover {
   color: #adb5bd;
   font-size: 0.85rem;
   font-weight: 300;
-  font-family: "Libre Franklin", sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif;
   line-height: 1.5rem !important;
   text-transform: capitalize;
   -webkit-transform: translateY(1px);
@@ -1485,13 +1491,16 @@ STYLE SWITCHER FOR DEMO
 
 .navbar-light .navbar-nav .nav-link {
   color: rgba(17, 17, 17, 0.99);
-  font-weight: 800;
+  font-weight: 400;
   font-size: 0.95rem;
   transition: all 0.3s;
 }
 
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
   color: #dcb14a;
+  opacity: 0.8;
+  border-radius: 10px;
+  background-color: #333;
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
@@ -1503,6 +1512,9 @@ STYLE SWITCHER FOR DEMO
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
   color: #dcb14a;
+  opacity: 0.8;
+  border-radius: 10px;
+  background-color: #333;
 }
 
 .navbar-light .navbar-toggler {
@@ -2267,10 +2279,11 @@ STYLE SWITCHER FOR DEMO
  * 3. TYPE
  */
 body {
-  font-family: "Libre Franklin", sans-serif;
-  font-size: 1rem;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
+  letter-spacing: .5px;
   color: #111111;
   background-color: #fff;
 }
@@ -3210,7 +3223,7 @@ code {
   text-transform: uppercase;
   font-size: 0.8rem;
   transition: all 0.3s;
-  font-weight: 700;
+  font-weight: 400;
   padding: 0.7rem 1.5rem;
   background: #fff;
   border-top-left-radius: 0;

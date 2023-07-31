@@ -1,56 +1,58 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-    {% block content %}
+{% block content %}
 
-      <div class="container py-5">
-        <div class="col-md-8 offset-2">
+<div class="container py-5">
+  <div class="col-md-8 offset-2">
 
-        <h1 class="mb-5">Log In to Your Account</h1>
-        
-        
-        <div class="card mb-4" id="forms">
-          
-          <div class="card-body">
-              
-            {% include 'partials/_messages.html' %}
+    <!-- Thêm blocktrans cho tiêu đề -->
+    <h1 class="mb-5">{% blocktrans %}Log In to Your Account{% endblocktrans %}</h1>
 
-            <form method="post" action="">
-              <fieldset>
-                {% csrf_token %}
+    <div class="card mb-4" id="forms">
 
-                {% for fm in form %}
-                    <div class="form-group">
-                        {{fm.label_tag}}
-                        {{fm}}
-                        <small class="text-danger">{{fm.errors|striptags}}</small>
-                    </div>
-                {% endfor %}
-                <button class="btn btn-primary" type="submit">Login</button>
-              </fieldset>
+      <div class="card-body">
 
-              {% if form.non_field_errors %}
-                {% for error in form.non_field_errors %}
-                    <p class="alert alert-danger my-3">
-                        {{error}}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </p>
-                {% endfor %}
-              {% endif %}
+        {% include 'partials/_messages.html' %}
+
+        <form method="post" action="">
+          <fieldset>
+            {% csrf_token %}
+
+            {% for fm in form %}
+              <div class="form-group">
+                {{ fm.label_tag }}
+                {{ fm }}
+                <small class="text-danger">{{ fm.errors|striptags }}</small>
+              </div>
+            {% endfor %}
+            <button class="btn btn-primary" type="submit">{% blocktrans %}Login{% endblocktrans %}</button>
+          </fieldset>
+
+          {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+              <p class="alert alert-danger my-3">
+                {% blocktrans %}{{ error }}{% endblocktrans %}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </p>
+            {% endfor %}
+          {% endif %}
+
+        </form>
+
+        <hr>
 
 
-            </form>
+        {% blocktrans %}Forgot Password?{% endblocktrans %} <a href="{% url 'store:password-reset' %}">{% blocktrans %}Reset Now{% endblocktrans %}</a> <br>
+        {% blocktrans %}New Member? {% endblocktrans %}<a href="{% url 'store:register' %}">{% blocktrans %}Create an Account{% endblocktrans %}</a>
 
-            <hr>
 
-            Forgot Password? <a href="{% url 'store:password-reset' %}">Reset Now</a> <br>
-            New Member? <a href="{% url 'store:register' %}">Create an Account</a> 
-            
-          </div>
-        </div>
-
-        </div>       
       </div>
+    </div>
+
+  </div>
+</div>
 {% endblock content %}

@@ -1,6 +1,7 @@
 
 
 from pathlib import Path
+from django.conf.locale import LANG_INFO
 
 import os
 
@@ -17,7 +18,7 @@ SECRET_KEY = 'django-insecure-3%y3laftm62q0zaj+s7#p-xqq9(&#q+)s8)p-&#&bz*0$!xu$0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*','localhost']
 
 
 # Application definition
@@ -41,6 +42,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'jewelryshop.urls'
@@ -99,9 +101,20 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'vi'
 
-TIME_ZONE = 'UTC'
+LANGUAGES = [
+    ('vi', LANG_INFO['vi']['name_local']),
+    ('en', LANG_INFO['en']['name_local']),
+    # Thêm các ngôn ngữ khác nếu cần
+]
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),  # BASE_DIR là đường dẫn đến thư mục gốc của ứng dụng Django
+]
+
+TIME_ZONE = 'Asia/Ho_Chi_Minh'
+DEFAULT_USER_TIME_ZONE = 'Asia/Ho_Chi_Minh'
 
 USE_I18N = True
 
@@ -109,6 +122,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Cho phép chọn ngôn ngữ bằng URL
+LANGUAGE_COOKIE_NAME = 'django_language'
+LANGUAGE_COOKIE_URL = True
+
+# Cookies
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
