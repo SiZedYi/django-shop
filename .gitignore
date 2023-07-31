@@ -3,3 +3,5 @@ venv
 
 #diagram
 chart.drawio
+
+.DS_Store
