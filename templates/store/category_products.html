@@ -102,12 +102,16 @@
                       <li class="list-inline-item text-muted mr-3"><a class="reset-anchor p-0" href="#"><i class="fas fa-th-large"></i></a></li>
                       <li class="list-inline-item text-muted mr-3"><a class="reset-anchor p-0" href="#"><i class="fas fa-th"></i></a></li>
                       <li class="list-inline-item">
-                        <select class="selectpicker ml-auto" name="sorting" data-width="200" data-style="bs-select-form-control" data-title="Default sorting">
-                          <option value="default">{% trans "Default sorting" %}</option>
-                          <option value="popularity">{% trans "Popularity" %}</option>
-                          <option value="low-high">{% trans "Price: Low to High" %}</option>
-                          <option value="high-low">{% trans "Price: High to Low" %}</option>
-                        </select>
+                        <form id="sorting-form" action="{% url 'store:category-products' category.slug %}" method="post">
+                          {% csrf_token %}
+                          <select id="sorting-select" class="selectpicker ml-auto" name="sorting" data-width="200" data-style="bs-select-form-control"
+                            onchange="updateDataTitle(this)">
+                            <option value="default">{% trans "Default sorting" %}</option>
+                            {% comment %} <option value="popularity">{% trans "Popularity" %}</option> {% endcomment %}
+                            <option value="low-high">{% trans "Price: Low to High" %}</option>
+                            <option value="high-low">{% trans "Price: High to Low" %}</option>
+                          </select>
+                        </form>
                       </li>
                     </ul>
                   </div>
@@ -173,4 +177,27 @@
           </div>
         </section>
       </div>
+
+      <script>
+        function updateDataTitle(selectElement) {
+          // Lấy tùy chọn (option) được chọn
+          var selectedOption = selectElement.options[selectElement.selectedIndex];
+          localStorage.setItem('selectedOption', selectedOption.textContent);
+          // Gán giá trị của tùy chọn đó vào data-title của thẻ select
+          selectElement.setAttribute('data-title', selectedOption.textContent);
+          document.getElementById("sorting-form").submit();
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+          // Kiểm tra xem đã có dữ liệu trong Local Storage chưa
+          var savedSelectedOption = localStorage.getItem('selectedOption');
+          if (savedSelectedOption) {
+            // Nếu có, cập nhật dữ liệu vào select
+            console.log(savedSelectedOption)
+            var selectElement = document.getElementById("sorting-select");
+            selectElement.setAttribute('data-title', savedSelectedOption);
+
+          }
+        });
+      </script>
       {% endblock content %}

@@ -27,11 +27,30 @@
               {% endfor %}
           </select>
           <input type="submit" value="Go">
-      </form>
+        </form>
       </div>
-      <div class="col-xs-12 text-center d-block d-md-none">
+
+      <!-- Mobile -->
+      <div class="col-xs-12 text-center d-block d-md-none m-auto">
         <i class="fa fa-phone"></i>
         <span>{% blocktrans %}Hotline: 951-999-9999{% endblocktrans %}</span>
+      </div>
+      <div class="col-xs-12 text-center d-block d-md-none m-auto">
+        <form action="{% url 'set_language' %}" method="post">
+          {% csrf_token %}
+          <input name="next" type="hidden" value="{{ redirect_to }}">
+          <select name="language">
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% get_language_info_list for LANGUAGES as languages %}
+              {% for language in languages %}
+                  <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                      {{ language.name_local }} ({{ language.code }})
+                  </option>
+              {% endfor %}
+          </select>
+          <input type="submit" value="Go">
+        </form>
       </div>
     </div>
 

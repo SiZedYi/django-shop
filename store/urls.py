@@ -19,11 +19,11 @@ urlpatterns = [
     path('orders/', views.orders, name="orders"),
 
     #URL for Products
+    path('shop/', views.shop, name="shop"),
     path('product/<slug:slug>/', views.detail, name="product-detail"),
     path('categories/', views.all_categories, name="all-categories"),
     path('<slug:slug>/', views.category_products, name="category-products"),
 
-    path('shop/', views.shop, name="shop"),
 
     # URL for Authentication
     path('accounts/register/', views.RegistrationView.as_view(), name="register"),

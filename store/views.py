@@ -40,7 +40,17 @@ def all_categories(request):
 
 def category_products(request, slug):
     category = get_object_or_404(Category, slug=slug)
-    products = Product.objects.filter(is_active=True, category=category)
+    sorting = request.POST.get('sorting', 'default')
+
+    if sorting == 'popularity':
+        products = Product.objects.filter(is_active=True, category=category).order_by('-popularity_field')
+    elif sorting == 'low-high':
+        products = Product.objects.filter(is_active=True, category=category).order_by('price')
+    elif sorting == 'high-low':
+        products = Product.objects.filter(is_active=True, category=category).order_by('-price')
+    else:
+        products = Product.objects.filter(is_active=True, category=category)
+
     categories = Category.objects.filter(is_active=True)
     context = {
         'category': category,
@@ -196,16 +206,8 @@ def orders(request):
     all_orders = Order.objects.filter(user=request.user).order_by('-ordered_date')
     return render(request, 'store/orders.html', {'orders': all_orders})
 
-
-
-
-
 def shop(request):
     return render(request, 'store/shop.html')
-
-
-
-
 
 def test(request):
     return render(request, 'store/test.html')
