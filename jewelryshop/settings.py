@@ -18,7 +18,7 @@ SECRET_KEY = 'django-insecure-3%y3laftm62q0zaj+s7#p-xqq9(&#q+)s8)p-&#&bz*0$!xu$0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','localhost']
+ALLOWED_HOSTS = ['14.225.255.159','laramarket.vn']
 
 
 # Application definition
@@ -77,7 +77,7 @@ DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'laramarket',
-        'USER': 'postgres',
+        'USER': 'admin',
         'PASSWORD': 'anhthang123',
         'HOST': 'localhost',
         'PORT': '',
