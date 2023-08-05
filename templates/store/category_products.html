@@ -27,7 +27,7 @@
           <div class="container p-0">
             <div class="row">
               <!-- SHOP SIDEBAR-->
-              <div class="col-lg-3 order-2 order-lg-1">
+              <div class="col-lg-3 order-1 order-lg-1">
                 <h5 class="text-uppercase mb-4">{% trans "Categories" %}</h5>
 
                 {% if categories %}
@@ -40,59 +40,28 @@
                   {% endfor %}
                 {% endif %}
 
-                <h6 class="text-uppercase mb-4">{% trans "Price range" %}</h6>
-                <div class="price-range pt-4 mb-5">
+                <h6 class="text-uppercase mb-4">{% trans "Price range" %}<br> (.000 VND)</h6>
+                <div class="price-range pt-4 mb-1">
                   <div id="range"></div>
                   <div class="row pt-2">
                     <div class="col-6"><strong class="small font-weight-bold text-uppercase">{% trans "From" %}</strong></div>
                     <div class="col-6 text-right"><strong class="small font-weight-bold text-uppercase">{% trans "To" %}</strong></div>
                   </div>
+
+                </div>
+                <div class="mb-2">
+                    <button id="filter-submit" type="button" class="btn btn-dark btn-md btn-block h-100 d-flex
+                     align-items-center justify-content-center px-0">{% trans "Filter" %}</button>
                 </div>
                 {% comment %} <h6 class="text-uppercase mb-3">{% trans "Show only" %}</h6>
                 <div class="custom-control custom-checkbox mb-1">
                   <input class="custom-control-input" id="customCheck1" type="checkbox">
                   <label class="custom-control-label text-small" for="customCheck1">{% trans "Returns Accepted" %}</label>
                 </div>
-                <div class="custom-control custom-checkbox mb-1">
-                  <input class="custom-control-input" id="customCheck2" type="checkbox">
-                  <label class="custom-control-label text-small" for="customCheck2">{% trans "Returns Accepted" %}</label>
-                </div>
-                <div class="custom-control custom-checkbox mb-1">
-                  <input class="custom-control-input" id="customCheck3" type="checkbox">
-                  <label class="custom-control-label text-small" for="customCheck3">{% trans "Completed Items" %}</label>
-                </div>
-                <div class="custom-control custom-checkbox mb-1">
-                  <input class="custom-control-input" id="customCheck4" type="checkbox">
-                  <label class="custom-control-label text-small" for="customCheck4">{% trans "Sold Items" %}</label>
-                </div>
-                <div class="custom-control custom-checkbox mb-1">
-                  <input class="custom-control-input" id="customCheck5" type="checkbox">
-                  <label class="custom-control-label text-small" for="customCheck5">{% trans "Deals &amp; Savings" %}</label>
-                </div>
-                <div class="custom-control custom-checkbox mb-4">
-                  <input class="custom-control-input" id="customCheck6" type="checkbox">
-                  <label class="custom-control-label text-small" for="customCheck6">{% trans "Authorized Seller" %}</label>
-                </div>
-                <h6 class="text-uppercase mb-3">{% trans "Buying format" %}</h6>
-                <div class="custom-control custom-radio">
-                  <input class="custom-control-input" id="customRadio1" type="radio" name="customRadio">
-                  <label class="custom-control-label text-small" for="customRadio1">{% trans "All Listings" %}</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input class="custom-control-input" id="customRadio2" type="radio" name="customRadio">
-                  <label class="custom-control-label text-small" for="customRadio2">{% trans "Best Offer" %}</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input class="custom-control-input" id="customRadio3" type="radio" name="customRadio">
-                  <label class="custom-control-label text-small" for="customRadio3">{% trans "Auction" %}</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input class="custom-control-input" id="customRadio4" type="radio" name="customRadio">
-                  <label class="custom-control-label text-small" for="customRadio4">{% trans "Buy It Now" %}</label>
-                </div> {% endcomment %}
+                {% endcomment %}
               </div>
               <!-- SHOP LISTING-->
-              <div class="col-lg-9 order-1 order-lg-2 mb-5 mb-lg-0">
+              <div class="col-lg-9 order-2 order-lg-2 mb-5 mb-lg-0">
                 <div class="row mb-3 align-items-center">
                   <div class="col-lg-6 mb-2 mb-lg-0">
                     <p class="text-small text-muted mb-0">{% trans "Showing 1–12 of 53 " %}{% trans "results" %}</p>
@@ -104,13 +73,17 @@
                       <li class="list-inline-item">
                         <form id="sorting-form" action="{% url 'store:category-products' category.slug %}" method="post">
                           {% csrf_token %}
-                          <select id="sorting-select" class="selectpicker ml-auto" name="sorting" data-width="200" data-style="bs-select-form-control"
+                          <select id="sorting-select" data-title="" class="selectpicker ml-auto" name="sorting" data-width="200" data-style="bs-select-form-control"
                             onchange="updateDataTitle(this)">
                             <option value="default">{% trans "Default sorting" %}</option>
                             {% comment %} <option value="popularity">{% trans "Popularity" %}</option> {% endcomment %}
                             <option value="low-high">{% trans "Price: Low to High" %}</option>
                             <option value="high-low">{% trans "Price: High to Low" %}</option>
                           </select>
+
+                          {% comment %} lưu giá trị lọc giá vào thẻ input  {% endcomment %}
+                          <input type="hidden" name="filter-holder-min" value=""/>
+                          <input type="hidden" name="filter-holder-max" value=""/>
                         </form>
                       </li>
                     </ul>
@@ -163,41 +136,26 @@
 
                 </div>
                 <!-- PAGINATION-->
+                {% comment %} {% if users.has_other_pages %} {% endcomment %}
                 <nav aria-label="Page navigation example">
                   <ul class="pagination justify-content-center justify-content-lg-end">
+                    {% if products.has_previous %}
                     <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    {% else %}
+                    <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    {% endif %}
                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                     <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
                   </ul>
                 </nav>
+                {% comment %} {% endif %} {% endcomment %}
               </div>
             </div>
           </div>
         </section>
       </div>
 
-      <script>
-        function updateDataTitle(selectElement) {
-          // Lấy tùy chọn (option) được chọn
-          var selectedOption = selectElement.options[selectElement.selectedIndex];
-          localStorage.setItem('selectedOption', selectedOption.textContent);
-          // Gán giá trị của tùy chọn đó vào data-title của thẻ select
-          selectElement.setAttribute('data-title', selectedOption.textContent);
-          document.getElementById("sorting-form").submit();
-        }
 
-        document.addEventListener('DOMContentLoaded', function() {
-          // Kiểm tra xem đã có dữ liệu trong Local Storage chưa
-          var savedSelectedOption = localStorage.getItem('selectedOption');
-          if (savedSelectedOption) {
-            // Nếu có, cập nhật dữ liệu vào select
-            console.log(savedSelectedOption)
-            var selectElement = document.getElementById("sorting-select");
-            selectElement.setAttribute('data-title', savedSelectedOption);
-
-          }
-        });
-      </script>
       {% endblock content %}

@@ -10,15 +10,29 @@
       <script src="{% static 'vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.min.js' %}"></script>
       <script src="{% static 'js/front.js' %}"></script>
 
+
       <script>
+          //Hàm debounce
+        function debounce(func, delay) {
+          let timer;
+          return function () {
+            clearTimeout(timer);
+            timer = setTimeout(func, delay);
+          };
+        }
         var range = document.getElementById('range');
+
+        // tìm trong sessionStorage nếu có thì lấy không thì gán mặc định
+        var filterMin = sessionStorage.getItem('filter_min') ? sessionStorage.getItem('filter_min') : 0;
+        var filterMax = sessionStorage.getItem('filter_max') ? sessionStorage.getItem('filter_max') : 800;
+
         noUiSlider.create(range, {
             range: {
                 'min': 0,
-                'max': 2000
+                'max': 1600
             },
             step: 5,
-            start: [100, 1000],
+            start: [filterMin, filterMax],
             margin: 300,
             connect: true,
             direction: 'ltr',
@@ -34,6 +48,53 @@
               }
             }
         });
+          // Function to update the data-title attribute of the select element
+        function updateDataTitle(selectElement) {
+          // Get the selected option
+          var selectedOption = $(selectElement).find('option:selected').text();
+          sessionStorage.setItem('selectedOption', selectedOption);
+          // Set the data-title attribute of the select element
+          $(selectElement).attr('data-title', selectedOption);
+          // Send filter values to the server when submitting the form
+          sendFilterValuesToServer();
+          $("#sorting-form").submit();
+        }
+
+        // Xử lý sự kiện ấn nút lọc sẽ gửi POST đến server
+        $("#filter-submit").on('click', function() {
+          var sortingElement = $("sorting-select");
+          updateDataTitle(sortingElement);
+        })
+
+        // Function to set the slider values to the input element
+        function setDataToInput(values) {
+          $('input[name="filter-holder-min"]').val(values[0]);
+          $('input[name="filter-holder-max"]').val(values[1]);
+          sessionStorage.setItem("filter_min", values[0])
+          sessionStorage.setItem("filter_max", values[1])
+        }
+
+        // Function to send filter values to the server
+        function sendFilterValuesToServer() {
+          var values = range.noUiSlider.get();
+          setDataToInput(values);
+          console.log($('input[name="filter-holder"]').val());
+        }
+
+        // Check if there is data in Local Storage
+        document.addEventListener('DOMContentLoaded', function() {
+          // Kiểm tra xem đã có dữ liệu trong Local Storage chưa
+          var savedSelectedOption = sessionStorage.getItem('selectedOption');
+          if (savedSelectedOption) {
+            // Nếu có, cập nhật dữ liệu vào select
+            console.log(savedSelectedOption)
+            var selectElement = document.getElementById("sorting-select");
+            selectElement.setAttribute('data-title', savedSelectedOption);
+          }
+        });
+      </script>
+
+      <script>
 
       </script>
 

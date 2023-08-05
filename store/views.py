@@ -1,5 +1,6 @@
 import django
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from store.models import Address, Cart, Category, Order, Product
 from django.shortcuts import redirect, render, get_object_or_404
 from .forms import RegistrationForm, AddressForm
@@ -39,17 +40,42 @@ def all_categories(request):
 
 
 def category_products(request, slug):
-    category = get_object_or_404(Category, slug=slug)
-    sorting = request.POST.get('sorting', 'default')
+    # Tương ứng với view của noUislider
+    min_value = 0
+    max_value = 800
+    if request.method == 'POST':
+        # Lấy dữ liệu từ request
+        min_value = request.POST.get('filter-holder-min')
+        max_value = request.POST.get('filter-holder-max')
+        print(min_value,max_value)
 
+    category = get_object_or_404(Category, slug=slug)
+
+    # FILTER
+    products_filtered = Product.objects.filter(is_active=True, category=category,
+                                                price__gte=min_value, price__lte=max_value )
+
+
+    # SORTING
+    sorting = request.POST.get('sorting', 'default')
     if sorting == 'popularity':
-        products = Product.objects.filter(is_active=True, category=category).order_by('-popularity_field')
+        products_sorting = products_filtered.order_by('-popularity_field')
     elif sorting == 'low-high':
-        products = Product.objects.filter(is_active=True, category=category).order_by('price')
+        products_sorting = products_filtered.order_by('price')
     elif sorting == 'high-low':
-        products = Product.objects.filter(is_active=True, category=category).order_by('-price')
+        products_sorting = products_filtered.order_by('-price')
     else:
-        products = Product.objects.filter(is_active=True, category=category)
+        products_sorting = products_filtered
+
+    # PAGINATION
+    page = request.GET.get('page', 1)
+    paginator = Paginator(products_sorting, 10)
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
 
     categories = Category.objects.filter(is_active=True)
     context = {

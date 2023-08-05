@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'psycopg2',
     'store',
 ]
 
@@ -73,9 +74,13 @@ WSGI_APPLICATION = 'jewelryshop.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'laramarket',
+        'USER': 'postgres',
+        'PASSWORD': 'anhthang123',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
