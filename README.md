@@ -28,7 +28,7 @@ And if you like this project then ADD a STAR ⭐️  to this project 👆
 3. Pay with PayPal or Debit/Credit Card and Order
 4. See the Order Status
 5. See Order History
-6. Update Profile 
+6. Update Profile
 7. Change Password
 8. Reset Password
 
@@ -44,7 +44,7 @@ And if you like this project then ADD a STAR ⭐️  to this project 👆
 
 **[Buy me a Coffee  ☕️](https://www.buymeacoffee.com/vijaythapa)**
 
-**Donate by wire transfer:** E-Mail at *donate@vijaythapa.com* for wire transfer details. 
+**Donate by wire transfer:** E-Mail at *donate@vijaythapa.com* for wire transfer details.
 
 
 ## How to Install and Run this project?
@@ -111,8 +111,8 @@ $  pip install -r requirements.txt
 
 **5. Add the hosts**
 
-- Got to settings.py file 
-- Then, On allowed hosts, Add [‘*’]. 
+- Got to settings.py file
+- Then, On allowed hosts, Add [‘*’].
 ```python
 ALLOWED_HOSTS = ['*']
 ```
@@ -146,9 +146,18 @@ $  python3 manage.py createsuperuser
 ```
 Then Add Email, Username and Password
 
+**8. After update code**
 
+If you update your Django application, you can restart the Gunicorn process to pick up the changes by typing:
+```sudo systemctl restart gunicorn```
 
-## For Sponsor or Projects Enquiry
-1. Email - hi@vijaythapa.com
-2. LinkedIn - [vijaythapa](https://www.linkedin.com/in/vijaythapa "Vijay Thapa on LinkedIn")
+If you change gunicorn systemd service file, reload the daemon and restart the process by typing:
+```
+sudo systemctl daemon-reload
+sudo systemctl restart gunicorn
+```
 
+If you change the Nginx server block configuration, test the configuration and then Nginx by typing:
+```
+sudo nginx -t && sudo systemctl restart nginx
+```
