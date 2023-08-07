@@ -1,6 +1,7 @@
 #virtual environment
 venv
 
+__pycache__
 #diagram
 chart.drawio
 
