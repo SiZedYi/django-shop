@@ -1,9 +1,12 @@
 #virtual environment
 venv
 
-__pycache__/
+**/__pycache__/
 #diagram
 chart.drawio
 
 jewelryshop/settings.py
 .DS_Store
+
+media
+static

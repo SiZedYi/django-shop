@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-31 15:21+0700\n"
+"POT-Creation-Date: 2023-08-08 13:38+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,7 +64,7 @@ msgstr "Xác Nhận"
 msgid "Log In to Your Account"
 msgstr "Đăng Nhập Tài Khoản"
 
-#: templates/account/login.html:30 templates/navbar.html:91
+#: templates/account/login.html:30 templates/navbar.html:113
 msgid "Login"
 msgstr "Đăng Nhập"
 
@@ -206,7 +206,7 @@ msgstr "Thành Phố:"
 msgid "Address not Added."
 msgstr "Địa Chỉ chưa được thêm"
 
-#: templates/account/profile.html:50 templates/navbar.html:83
+#: templates/account/profile.html:50 templates/navbar.html:105
 #: templates/store/orders.html:14
 msgid "Orders"
 msgstr "Đơn Hàng"
@@ -310,7 +310,7 @@ msgstr ""
 msgid "Website by"
 msgstr "Phát triển bởi"
 
-#: templates/navbar.html:9 templates/navbar.html:34
+#: templates/navbar.html:9 templates/navbar.html:36
 msgid "Hotline: 951-999-9999"
 msgstr "Hotline: 951-999-9999"
 
@@ -318,53 +318,49 @@ msgstr "Hotline: 951-999-9999"
 msgid "Welcome to Lara Market"
 msgstr "Chào mừng bạn đến với Lara Market"
 
-#: templates/navbar.html:45
+#: templates/navbar.html:64
 msgid "laramarket"
 msgstr "laramarket"
 
-#: templates/navbar.html:50 templates/store/cart.html:18
+#: templates/navbar.html:69 templates/store/cart.html:18
 #: templates/store/category_products.html:17 templates/store/checkout.html:17
 msgid "Home"
 msgstr "Trang Chủ"
 
-#: templates/navbar.html:52 templates/store/category_products.html:31
+#: templates/navbar.html:71 templates/store/category_products.html:31
 msgid "Categories"
 msgstr "Công Dụng"
 
-#: templates/navbar.html:60
+#: templates/navbar.html:79
 msgid "All Categories"
 msgstr "Tất cả Công Dụng"
 
-#: templates/navbar.html:64
+#: templates/navbar.html:83
 msgid "Blog"
 msgstr "Hướng Dẫn"
 
-#: templates/navbar.html:67
+#: templates/navbar.html:86
 msgid "Contact"
 msgstr "Liên Hệ"
 
-#: templates/navbar.html:77
-msgid "My Account"
-msgstr "Tài Khoản"
-
-#: templates/navbar.html:81
+#: templates/navbar.html:103
 msgid "Profile"
 msgstr "Thông Tin"
 
-#: templates/navbar.html:82 templates/store/cart.html:13
+#: templates/navbar.html:104 templates/store/cart.html:13
 #: templates/store/cart.html:19 templates/store/checkout.html:18
 msgid "Cart"
 msgstr "Giỏ Hàng"
 
-#: templates/navbar.html:84
+#: templates/navbar.html:106
 msgid "Change Password"
 msgstr "Đổi Mật Khẩu"
 
-#: templates/navbar.html:87
+#: templates/navbar.html:109
 msgid "Log Out"
 msgstr "Đăng Xuất"
 
-#: templates/navbar.html:92
+#: templates/navbar.html:114
 msgid "Create Account"
 msgstr "Tạo Tài Khoản"
 
@@ -452,28 +448,28 @@ msgstr "Thanh toán khi nhận hàng"
 msgid "Your cart is empty."
 msgstr "Giỏ hàng của bạn đang trống"
 
-#: templates/store/categories.html:14
+#: templates/store/categories.html:14 templates/store/index.html:25
 msgid "Carefully created collections"
 msgstr "Chúng tôi đã chọn lọc một cách cẩn thận"
 
-#: templates/store/categories.html:15
+#: templates/store/categories.html:15 templates/store/index.html:26
 msgid "Browse our categories"
 msgstr "Tìm sản phẩm theo công dụng"
 
-#: templates/store/categories.html:52
+#: templates/store/categories.html:52 templates/store/index.html:116
 msgid "Free shipping"
 msgstr "Miễn phí giao hàng"
 
 #: templates/store/categories.html:53 templates/store/categories.html:66
-#: templates/store/categories.html:79
+#: templates/store/categories.html:79 templates/store/index.html:117
 msgid "Free shipping worlwide"
 msgstr "Giao hàng toàn quốc"
 
-#: templates/store/categories.html:65
+#: templates/store/categories.html:65 templates/store/index.html:129
 msgid "24 x 7 service"
 msgstr "Dịch vụ 24/7"
 
-#: templates/store/categories.html:78
+#: templates/store/categories.html:78 templates/store/index.html:142
 msgid "Festival offer"
 msgstr "Ưu đãi các dịp lễ"
 
@@ -483,13 +479,15 @@ msgstr "Người bạn đáng tin cậy của mọi nhà!"
 
 #: templates/store/categories.html:95
 msgid "Nisi nisi tempor consequat laboris nisi."
-msgstr "Luôn tự hào đồng hành cùng khách hàng, sức khỏe của bạn là sứ mệnh của chúng tôi."
+msgstr ""
+"Luôn tự hào đồng hành cùng khách hàng, sức khỏe của bạn là sứ mệnh của chúng "
+"tôi."
 
 #: templates/store/categories.html:100
 msgid "Enter your email address."
 msgstr "Nhập email của bạn."
 
-#: templates/store/categories.html:102
+#: templates/store/categories.html:102 templates/store/index.html:166
 msgid "Subscribe"
 msgstr "Đăng Ký "
 
@@ -509,27 +507,32 @@ msgstr "Từ"
 msgid "To"
 msgstr "Đến"
 
-#: templates/store/category_products.html:98
-msgid "Showing 1–12 of 53 results"
+#: templates/store/category_products.html:54
+msgid "Filter"
 msgstr ""
 
-#: templates/store/category_products.html:106
+#: templates/store/category_products.html:68
+msgid "Showing 1–12 of 53 "
+msgstr ""
+
+#: templates/store/category_products.html:68
+msgid "results"
+msgstr ""
+
+#: templates/store/category_products.html:79
 msgid "Default sorting"
 msgstr "Mặc Định"
 
-#: templates/store/category_products.html:107
-msgid "Popularity"
-msgstr "Xem Nhiều"
-
-#: templates/store/category_products.html:108
+#: templates/store/category_products.html:82
 msgid "Price: Low to High"
 msgstr "Giá: Thấp đến Cao"
 
-#: templates/store/category_products.html:109
+#: templates/store/category_products.html:83
 msgid "Price: High to Low"
 msgstr "Giá: Cao đến Thấp"
 
-#: templates/store/category_products.html:145 templates/store/detail.html:50
+#: templates/store/category_products.html:125 templates/store/detail.html:50
+#: templates/store/index.html:84
 msgid "Add to Cart"
 msgstr "Thêm giỏ hàng"
 
@@ -539,51 +542,52 @@ msgstr ""
 
 #: templates/store/checkout.html:28
 msgid "Billing details"
-msgstr ""
+msgstr "Chi tiết Hóa đơn"
 
 #: templates/store/checkout.html:34 templates/store/checkout.html:85
 msgid "First name"
-msgstr ""
+msgstr "Họ"
 
 #: templates/store/checkout.html:35 templates/store/checkout.html:86
 msgid "Enter your first name"
-msgstr ""
+msgstr "Họ của bạn"
 
 #: templates/store/checkout.html:38 templates/store/checkout.html:89
 msgid "Last name"
-msgstr ""
+msgstr "Tên"
 
 #: templates/store/checkout.html:39 templates/store/checkout.html:90
 msgid "Enter your last name"
-msgstr ""
+msgstr "Tên của bạn"
 
 #: templates/store/checkout.html:42 templates/store/checkout.html:93
+#: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1638
 msgid "Email address"
-msgstr ""
+msgstr "Địa chỉ Email"
 
 #: templates/store/checkout.html:43 templates/store/checkout.html:94
 msgid "e.g. Jason@example.com"
-msgstr ""
+msgstr "Ví dụ: Jason@example.com"
 
 #: templates/store/checkout.html:46 templates/store/checkout.html:97
 msgid "Phone number"
-msgstr ""
+msgstr "Số điện thoại"
 
 #: templates/store/checkout.html:47 templates/store/checkout.html:98
 msgid "e.g. +02 245354745"
-msgstr ""
+msgstr "Ví dụ: +84 372554580"
 
 #: templates/store/checkout.html:50 templates/store/checkout.html:101
 msgid "Company name (optional)"
-msgstr ""
+msgstr "Tên công ty (Tùy chọn)"
 
 #: templates/store/checkout.html:51 templates/store/checkout.html:102
 msgid "Your company name"
-msgstr ""
+msgstr "Tên công ty của bạn"
 
 #: templates/store/checkout.html:54 templates/store/checkout.html:105
 msgid "Country"
-msgstr ""
+msgstr "Thành phố"
 
 #: templates/store/checkout.html:55 templates/store/checkout.html:106
 #, fuzzy
@@ -599,7 +603,7 @@ msgstr "Danh Sách Địa Chỉ"
 
 #: templates/store/checkout.html:59 templates/store/checkout.html:110
 msgid "House number and street name"
-msgstr ""
+msgstr "Số nhà và tên đường"
 
 #: templates/store/checkout.html:62 templates/store/checkout.html:113
 #, fuzzy
@@ -663,27 +667,63 @@ msgstr "Thêm vào Yêu thích"
 msgid "SKU"
 msgstr "Mã sản phẩm"
 
-#: templates/store/detail.html:64
+#: templates/store/detail.html:63
 msgid "Description"
 msgstr "Mô tả"
 
-#: templates/store/detail.html:65
+#: templates/store/detail.html:64
 msgid "Reviews"
 msgstr "Đánh Giá"
 
-#: templates/store/detail.html:70
+#: templates/store/detail.html:69
 msgid "Product description"
 msgstr "Mô Tả Sản Phẩm"
 
-#: templates/store/detail.html:113
+#: templates/store/detail.html:88 templates/store/detail.html:102
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod "
+"tempor incididunt ut labore et dolore magna aliqua."
+msgstr ""
+
+#: templates/store/detail.html:112
 msgid "Related products"
 msgstr "Sản Phẩm Liên Quan"
 
-#: templates/store/detail.html:131
+#: templates/store/detail.html:130
 msgid "Add to cart"
 msgstr "Thêm Giỏ hàng"
 
+#: templates/store/index.html:12
+msgid "New Inspiration"
+msgstr "Sản phẩm uy tín chất lượng"
+
+#: templates/store/index.html:13
+#, python-format
+msgid "20%% off on new season"
+msgstr "Giảm 20% nhân dịp website thành lập"
+
+#: templates/store/index.html:14
+msgid "Browse collections"
+msgstr "Xem Thêm"
+
+#: templates/store/index.html:52
+msgid "Made the hard way"
+msgstr "Mang đến những sản phẩm tốt nhất"
+
+#: templates/store/index.html:53
+msgid "Top trending products"
+msgstr "Sản Phẩm Mới Nhất"
+
+#: templates/store/index.html:130
+msgid "Bring heath to you in the shortest time"
+msgstr "Mang sản phẩm đến tay bạn trong thời gian sớm nhất"
+
+#: templates/store/index.html:143
+msgid "Big sale on festival"
+msgstr "Giảm giá cực sốc các dịp lễ"
+
 #: templates/store/orders.html:21
+#: venv/lib/python3.8/site-packages/django/db/models/fields/files.py:375
 msgid "Image"
 msgstr "Ảnh"
 
@@ -697,4 +737,5 @@ msgstr "Ngày đặt"
 
 #: templates/store/orders.html:45
 msgid "Pending"
-msgstr ""
+msgstr "Chờ xác nhận"
+
