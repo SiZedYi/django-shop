@@ -74,22 +74,22 @@ WSGI_APPLICATION = 'jewelryshop.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-        'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'laramarket',
-        'USER': 'huynhthang',
-        'PASSWORD': 'anhthang123',
-        'HOST': 'localhost',
-        'PORT': '',
-    },
-    # 'default': {
+    #     'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
     #     'NAME': 'laramarket',
-    #     'USER': 'admin',
+    #     'USER': 'huynhthang',
     #     'PASSWORD': 'anhthang123',
     #     'HOST': 'localhost',
     #     'PORT': '',
-    # }
+    # },
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'laramarket',
+        'USER': 'admin',
+        'PASSWORD': 'anhthang123',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
 }
 
 
