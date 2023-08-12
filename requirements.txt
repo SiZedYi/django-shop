@@ -6,3 +6,4 @@ django-default-language
 sqlparse==0.4.1
 psycopg2-binary
 gunicorn
+markdown==3.2.1

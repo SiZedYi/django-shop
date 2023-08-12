@@ -80,7 +80,8 @@
 
           </li>
           <li class="nav-item">
-            <!-- Link--><a class="nav-link" href="{% url 'store:home' %}">{% blocktrans %}Blog{% endblocktrans %}</a>
+            {% comment %} <!-- Link--><a class="nav-link" href="{% url 'store:home' %}">{% blocktrans %}Blog{% endblocktrans %}</a> {% endcomment %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'store:blog-list' %}">{% trans "How to Use" %}</a></li>
           </li>
           <li class="nav-item">
             <!-- Link--><a class="nav-link" href="{% url 'store:home' %}">{% blocktrans %}Contact{% endblocktrans %}</a>
@@ -88,8 +89,8 @@
         </ul>
         <ul class="navbar-nav ml-auto">
           {% if request.user.is_authenticated %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'store:cart' %}"> <i class="fas fa-dolly-flatbed mr-1 text-black"></i><small class="text-black">({{cart_items.count}})</small></a></li>
-            <li class="nav-item"><a class="nav-link" href="#"> <i class="far fa-heart mr-1"></i><small class="text-black"> (0)</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'store:cart' %}"> <i class="fas fa-dolly-flatbed mr-1 text-black"></i><small class="text-black">({{cart_items.count}})</small></a></li>
+          <li class="nav-item"><a class="nav-link" href="#"> <i class="far fa-heart mr-1"></i><small class="text-black"> (0)</small></a></li>
             {% comment %} <li class="nav-item"><a class="nav-link" href="#"> <i class="fas fa-user-alt mr-1 text-black"></i>My Account</a></li> {% endcomment %}
 
             <li class="nav-item dropdown">
@@ -97,7 +98,9 @@
                 <i class="fas fa-user-alt mr-1 text-black"></i>{{user.username}}</a></a>
                 {% comment %} {% blocktrans %}My Account{% endblocktrans %} {% endcomment %}
             <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
-
+                {% if user.is_superuser %}
+                <a class="dropdown-item border-0 transition-link" href="/admin">{% blocktrans %}Admin{% endblocktrans %}</a>
+                {% endif %}
                 <a class="dropdown-item border-0 transition-link" href="{% url 'store:profile' %}">{% blocktrans %}Profile{% endblocktrans %}</a>
                 <a class="dropdown-item border-0 transition-link" href="{% url 'store:cart' %}">{% blocktrans %}Cart{% endblocktrans %}</a>
                 <a class="dropdown-item border-0 transition-link" href="{% url 'store:orders' %}">{% blocktrans %}Orders{% endblocktrans %}</a>

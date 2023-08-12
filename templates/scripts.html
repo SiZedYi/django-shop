@@ -66,6 +66,15 @@
           updateDataTitle(sortingElement);
         })
 
+        function checkAddress(e) {
+          if($('input[name="address"]:checked'))
+          alert(123)
+          else {
+            e.preventDefault()
+            alert($('input[name="address"]:checked').length)
+          }
+        }
+
         // Function to set the slider values to the input element
         function setDataToInput(values) {
           $('input[name="filter-holder-min"]').val(values[0]);

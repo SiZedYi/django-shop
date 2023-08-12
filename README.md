@@ -147,6 +147,10 @@ $  python3 manage.py createsuperuser
 Then Add Email, Username and Password
 
 **8. After update code**
+Start PostgreSQL
+```
+sudo service postgresql start
+```
 
 If you update your Django application, you can restart the Gunicorn process to pick up the changes by typing:
 ```sudo systemctl restart gunicorn```

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 13:38+0700\n"
+"POT-Creation-Date: 2023-08-09 16:00+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,7 +64,7 @@ msgstr "Xác Nhận"
 msgid "Log In to Your Account"
 msgstr "Đăng Nhập Tài Khoản"
 
-#: templates/account/login.html:30 templates/navbar.html:113
+#: templates/account/login.html:30 templates/navbar.html:116
 msgid "Login"
 msgstr "Đăng Nhập"
 
@@ -161,19 +161,15 @@ msgstr "Email"
 
 #: templates/account/profile.html:13
 msgid "Username:"
-msgstr "Tên Tài Khoản"
+msgstr "Tên Tài Khoản: "
 
 #: templates/account/profile.html:14
-#, fuzzy
-#| msgid "Add New Address"
 msgid "Add Address »"
-msgstr "Thêm Địa Chỉ"
+msgstr "Thêm Địa Chỉ >>"
 
 #: templates/account/profile.html:14
-#, fuzzy
-#| msgid "Orders"
 msgid "My Orders »"
-msgstr "Đơn Hàng"
+msgstr "Đơn Hàng Của Tôi"
 
 #: templates/account/profile.html:22
 msgid "Addresses"
@@ -206,7 +202,7 @@ msgstr "Thành Phố:"
 msgid "Address not Added."
 msgstr "Địa Chỉ chưa được thêm"
 
-#: templates/account/profile.html:50 templates/navbar.html:105
+#: templates/account/profile.html:50 templates/navbar.html:108
 #: templates/store/orders.html:14
 msgid "Orders"
 msgstr "Đơn Hàng"
@@ -284,11 +280,11 @@ msgstr "Công ty"
 
 #: templates/footer.html:20
 msgid "What We Do"
-msgstr ""
+msgstr "Về Chúng Tôi"
 
 #: templates/footer.html:21
 msgid "Available Services"
-msgstr ""
+msgstr "Dịch Vụ Hiện Có"
 
 #: templates/footer.html:22
 msgid "Latest Posts"
@@ -302,11 +298,11 @@ msgstr ""
 msgid "Social media"
 msgstr "Mạng xã hội"
 
-#: templates/footer.html:39
+#: templates/footer.html:38
 msgid "All rights reserved."
 msgstr ""
 
-#: templates/footer.html:42
+#: templates/footer.html:41
 msgid "Website by"
 msgstr "Phát triển bởi"
 
@@ -337,30 +333,38 @@ msgstr "Tất cả Công Dụng"
 
 #: templates/navbar.html:83
 msgid "Blog"
-msgstr "Hướng Dẫn"
+msgstr "Bài Viết"
 
 #: templates/navbar.html:86
 msgid "Contact"
 msgstr "Liên Hệ"
 
-#: templates/navbar.html:103
+#: templates/navbar.html:91
+msgid "How to Use"
+msgstr "Hướng Dẫn"
+
+#: templates/navbar.html:104
+msgid "Admin"
+msgstr "Quản trị viên"
+
+#: templates/navbar.html:106
 msgid "Profile"
 msgstr "Thông Tin"
 
-#: templates/navbar.html:104 templates/store/cart.html:13
+#: templates/navbar.html:107 templates/store/cart.html:13
 #: templates/store/cart.html:19 templates/store/checkout.html:18
 msgid "Cart"
 msgstr "Giỏ Hàng"
 
-#: templates/navbar.html:106
+#: templates/navbar.html:109
 msgid "Change Password"
 msgstr "Đổi Mật Khẩu"
 
-#: templates/navbar.html:109
+#: templates/navbar.html:112
 msgid "Log Out"
 msgstr "Đăng Xuất"
 
-#: templates/navbar.html:114
+#: templates/navbar.html:117
 msgid "Create Account"
 msgstr "Tạo Tài Khoản"
 
@@ -407,44 +411,40 @@ msgstr "Đơn Giá"
 msgid "Quantity"
 msgstr "Số Lượng"
 
-#: templates/store/cart.html:43 templates/store/cart.html:106
+#: templates/store/cart.html:43 templates/store/cart.html:107
 #: templates/store/checkout.html:142
 msgid "Total"
 msgstr "Tổng Cộng"
 
-#: templates/store/cart.html:92 templates/store/cart.html:154
+#: templates/store/cart.html:92 templates/store/cart.html:155
 msgid "Continue shopping"
 msgstr "Tiếp Tục Mua Sắm"
 
-#: templates/store/cart.html:93
-msgid "Procceed to checkout"
-msgstr ""
-
-#: templates/store/cart.html:101
+#: templates/store/cart.html:102
 msgid "Cart total"
 msgstr "Tổng Cộng Giỏ Hàng"
 
-#: templates/store/cart.html:103
+#: templates/store/cart.html:104
 msgid "Subtotal"
 msgstr "Phụ Phí"
 
-#: templates/store/cart.html:104
+#: templates/store/cart.html:105
 msgid "Shipping Charge"
 msgstr "Phí Giao Hàng"
 
-#: templates/store/cart.html:121
+#: templates/store/cart.html:122
 msgid "Select Shipping Address"
 msgstr "Chọn Địa chỉ Giao Hàng"
 
-#: templates/store/cart.html:128
+#: templates/store/cart.html:129
 msgid "Address"
 msgstr "Địa Chỉ"
 
-#: templates/store/cart.html:139
+#: templates/store/cart.html:140
 msgid "Cash on Delivery"
 msgstr "Thanh toán khi nhận hàng"
 
-#: templates/store/cart.html:153
+#: templates/store/cart.html:154
 msgid "Your cart is empty."
 msgstr "Giỏ hàng của bạn đang trống"
 
@@ -460,8 +460,7 @@ msgstr "Tìm sản phẩm theo công dụng"
 msgid "Free shipping"
 msgstr "Miễn phí giao hàng"
 
-#: templates/store/categories.html:53 templates/store/categories.html:66
-#: templates/store/categories.html:79 templates/store/index.html:117
+#: templates/store/categories.html:53 templates/store/index.html:117
 msgid "Free shipping worlwide"
 msgstr "Giao hàng toàn quốc"
 
@@ -469,9 +468,17 @@ msgstr "Giao hàng toàn quốc"
 msgid "24 x 7 service"
 msgstr "Dịch vụ 24/7"
 
+#: templates/store/categories.html:66 templates/store/index.html:130
+msgid "Bring heath to you in the shortest time"
+msgstr "Mang sản phẩm đến tay bạn trong thời gian sớm nhất"
+
 #: templates/store/categories.html:78 templates/store/index.html:142
 msgid "Festival offer"
 msgstr "Ưu đãi các dịp lễ"
+
+#: templates/store/categories.html:79 templates/store/index.html:143
+msgid "Big sale on festival"
+msgstr "Giảm giá cực sốc các dịp lễ"
 
 #: templates/store/categories.html:94
 msgid "Let's be friends!"
@@ -480,7 +487,8 @@ msgstr "Người bạn đáng tin cậy của mọi nhà!"
 #: templates/store/categories.html:95
 msgid "Nisi nisi tempor consequat laboris nisi."
 msgstr ""
-"Luôn tự hào đồng hành cùng khách hàng, sức khỏe của bạn là sứ mệnh của chúng "
+"Luôn tự hào đồng hành cùng khách hàng,
+Sức khỏe của bạn là sứ mệnh của chúng "
 "tôi."
 
 #: templates/store/categories.html:100
@@ -509,15 +517,15 @@ msgstr "Đến"
 
 #: templates/store/category_products.html:54
 msgid "Filter"
-msgstr ""
+msgstr "Lọc"
 
 #: templates/store/category_products.html:68
 msgid "Showing 1–12 of 53 "
-msgstr ""
+msgstr "Hiển thị 1-12 của 12 "
 
 #: templates/store/category_products.html:68
 msgid "results"
-msgstr ""
+msgstr "kết quả"
 
 #: templates/store/category_products.html:79
 msgid "Default sorting"
@@ -698,7 +706,6 @@ msgid "New Inspiration"
 msgstr "Sản phẩm uy tín chất lượng"
 
 #: templates/store/index.html:13
-#, python-format
 msgid "20%% off on new season"
 msgstr "Giảm 20% nhân dịp website thành lập"
 
@@ -714,16 +721,7 @@ msgstr "Mang đến những sản phẩm tốt nhất"
 msgid "Top trending products"
 msgstr "Sản Phẩm Mới Nhất"
 
-#: templates/store/index.html:130
-msgid "Bring heath to you in the shortest time"
-msgstr "Mang sản phẩm đến tay bạn trong thời gian sớm nhất"
-
-#: templates/store/index.html:143
-msgid "Big sale on festival"
-msgstr "Giảm giá cực sốc các dịp lễ"
-
 #: templates/store/orders.html:21
-#: venv/lib/python3.8/site-packages/django/db/models/fields/files.py:375
 msgid "Image"
 msgstr "Ảnh"
 
@@ -738,4 +736,3 @@ msgstr "Ngày đặt"
 #: templates/store/orders.html:45
 msgid "Pending"
 msgstr "Chờ xác nhận"
-

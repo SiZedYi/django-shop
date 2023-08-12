@@ -132,7 +132,8 @@
                     <div class="text-end" id="paypal-button-container"></div>
 
                     {% comment %} For Cash on Delivery {% endcomment %}
-                    <button type="submit" class="btn btn-dark btn-lg btn-outline-dark" type="submit"> <i class="fas fa-dollar-sign mr-2"></i>{% trans "Cash on Delivery" %}</button>
+                    <button type="submit" class="btn btn-dark btn-lg btn-outline-dark" onclick="checkAddress(event)">
+                      <i class="fas fa-dollar-sign mr-2"></i>{% trans "Cash on Delivery" %}</button>
 
                   </form>
 

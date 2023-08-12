@@ -1,7 +1,8 @@
 import django
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from store.models import Address, Cart, Category, Order, Product
+from store.models import Address, Cart, Category, Order, Product, Blog
+from django.template.defaultfilters import stringfilter
 from django.shortcuts import redirect, render, get_object_or_404
 from .forms import RegistrationForm, AddressForm
 from django.contrib import messages
@@ -9,7 +10,6 @@ from django.views import View
 import decimal
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator # for Class Based Views
-
 
 # Create your views here.
 
@@ -235,5 +235,7 @@ def orders(request):
 def shop(request):
     return render(request, 'store/shop.html')
 
-def test(request):
-    return render(request, 'store/test.html')
+
+def all_blogs(request):
+    blogs = Blog.objects.filter( is_featured=True)
+    return render(request, 'store/blogs.html',{'blogs':blogs})

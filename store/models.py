@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Address(models.Model):
     user = models.ForeignKey(User, verbose_name="User", on_delete=models.CASCADE)
-    locality = models.CharField(max_length=150, verbose_name="Nearest Location")
-    city = models.CharField(max_length=150, verbose_name="City")
-    state = models.CharField(max_length=150, verbose_name="State")
+    locality = models.CharField(max_length=150, verbose_name="Số Nhà, Tên Đường, Phường/Xã")
+    city = models.CharField(max_length=150, verbose_name="Quận/Huyện")
+    state = models.CharField(max_length=150, verbose_name="Thành phố/Tỉnh")
 
     def __str__(self):
         return self.locality
@@ -88,3 +88,18 @@ class Order(models.Model):
         max_length=50,
         default="Pending"
         )
+
+class Blog(models.Model):
+    title = models.CharField(max_length=200)
+    body = models.TextField()
+    blog_image = models.ImageField(upload_to='blog', blank=True, null=True, verbose_name="Blog Image")
+    is_featured = models.BooleanField(verbose_name="Is Featured?")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created Date")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated Date")
+
+    class Meta:
+        verbose_name_plural = 'Blogs'
+        ordering = ('-created_at', )
+
+    def __str__(self):
+        return self.title
