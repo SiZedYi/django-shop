@@ -53,7 +53,7 @@ def category_products(request, slug):
 
     # FILTER
     products_filtered = Product.objects.filter(is_active=True, category=category,
-                                                price__gte=min_value, price__lte=max_value )
+                                                sale_price__gte=min_value, sale_price__lte=max_value )
 
 
     # SORTING
@@ -164,7 +164,7 @@ def cart(request):
     cp = [p for p in Cart.objects.all() if p.user==user]
     if cp:
         for p in cp:
-            temp_amount = (p.quantity * p.product.price)
+            temp_amount = (p.quantity * p.product.sale_price)
             amount += temp_amount
 
     # Customer Addresses

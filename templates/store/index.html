@@ -88,7 +88,10 @@
                       </div>
                     </div>
                     <h6> <a class="reset-anchor" href="detail.html">{{ product.title }}</a></h6>
-                    <p class="small text-muted">{{product.price}}.000 VND</p>
+                    <p class="text-center">
+                      <del class="small text-muted">{{product.raw_price}}.000 đ</del><br>
+                      <span class="text-danger fw-normal">{{product.sale_price}}.000 đ</span>
+                    </p>
                   </div>
                 </div>
 

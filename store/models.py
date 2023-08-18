@@ -37,7 +37,8 @@ class Product(models.Model):
     short_description = models.TextField(verbose_name="Short Description")
     detail_description = models.TextField(blank=True, null=True, verbose_name="Detail Description")
     product_image = models.ImageField(upload_to='product', blank=True, null=True, verbose_name="Product Image")
-    price = models.IntegerField()
+    raw_price = models.IntegerField()
+    sale_price = models.IntegerField()
     category = models.ForeignKey(Category, verbose_name="Product Categoy", on_delete=models.CASCADE)
     is_active = models.BooleanField(verbose_name="Is Active?")
     is_featured = models.BooleanField(verbose_name="Is Featured?")
@@ -65,7 +66,7 @@ class Cart(models.Model):
     # Creating Model Property to calculate Quantity x Price
     @property
     def total_price(self):
-        return self.quantity * self.product.price
+        return self.quantity * self.product.sale_price
 
 
 STATUS_CHOICES = (
