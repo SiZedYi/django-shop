@@ -93,6 +93,7 @@ class Order(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField()
+    navigate = models.TextField()
     blog_image = models.ImageField(upload_to='blog', blank=True, null=True, verbose_name="Blog Image")
     is_featured = models.BooleanField(verbose_name="Is Featured?")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created Date")

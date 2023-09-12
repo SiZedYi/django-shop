@@ -5,10 +5,31 @@
 {% load markdown_extras %}
 
 {% block content %}
+<style>
+    h1 a,h2 a, h3 a, h4 a, h5 a, h6 a{
+        visibility:hidden;
+    }
+
+    .sticky-col {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 2rem;
+        padding-top: 20px;
+        align-self: start;
+    }
+</style>
 <div class="container shadow-lg p-5 mt-5 rounded">
     {% for blog in blogs %}
-        <h2> {{ blog.title }} </h2>
-        <p> {{ blog.body | markdown | safe  }} </p>
+    <h2 class="text-center"> {{ blog.title }} </h2>
+    <div class="row">
+        <div class="col-lg-8">
+            <p> {{ blog.body | markdown | safe  }} </p>
+        </div>
+        <div class="col-lg-3 sticky-col">
+            <h5 class="text-uppercase">mục lục</h5>
+            <p> {{ blog.navigate | markdown | safe  }} </p>
+        </div>
+    </div>
     {% endfor %}
 </div>
 {% endblock content %}
