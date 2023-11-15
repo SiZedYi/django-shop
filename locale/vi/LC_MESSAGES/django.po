@@ -307,8 +307,8 @@ msgid "Website by"
 msgstr "Phát triển bởi"
 
 #: templates/navbar.html:9 templates/navbar.html:36
-msgid "Hotline: 951-999-9999"
-msgstr "Hotline: 951-999-9999"
+msgid "Hotline: 0934-790-768"
+msgstr "Hotline: 0934-790-768"
 
 #: templates/navbar.html:13
 msgid "Welcome to Lara Market"

@@ -127,7 +127,9 @@ sudo service postgresql start
 ```
 
 If you update your Django application, you can restart the Gunicorn process to pick up the changes by typing:
-```sudo systemctl restart gunicorn```
+```
+sudo systemctl restart gunicorn
+```
 
 If you change gunicorn systemd service file, reload the daemon and restart the process by typing:
 ```
