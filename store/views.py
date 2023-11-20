@@ -61,9 +61,9 @@ def category_products(request, slug):
     if sorting == 'popularity':
         products_sorting = products_filtered.order_by('-popularity_field')
     elif sorting == 'low-high':
-        products_sorting = products_filtered.order_by('price')
+        products_sorting = products_filtered.order_by('sale_price')
     elif sorting == 'high-low':
-        products_sorting = products_filtered.order_by('-price')
+        products_sorting = products_filtered.order_by('-sale_price')
     else:
         products_sorting = products_filtered
 
